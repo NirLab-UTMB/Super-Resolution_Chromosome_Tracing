@@ -39,7 +39,7 @@ A MATLAB pipeline for analyzing 3D chromosome tracing data, specialized for circ
 * **Required Toolboxes:**
   * Bioinformatics Toolbox (for `fastaread`)
   * Statistics and Machine Learning Toolbox (for `pdist` and `squareform`)
-* **Required Custom Functions:** <br> Ensure `wrcmap.m`, `squareform_nostats.m`, and `findParabolicRingTraces.m` are in your MATLAB path.
+* **Required Custom Functions:** <br> Ensure `wrcmap.mlx`, `squareform_nostats.mlx`, and `findParabolicRingTraces.mlx` are in your MATLAB path.
 
 ## Inputs
 * **PathToData.txt:** A comma-delimited text file listing the full paths to all spatial `.csv` files to be analyzed. (Must be first run through SepWalks.mlx to generate `Walk-IDs` column)
