@@ -27,8 +27,11 @@ A MATLAB-based pipeline for clustering 3D spatial genomic coordinates into indiv
 * **`SepWalk.mat`:** A full workspace backup of the processed data.
 * **Chromosome Folders:** Subfolders named by chromosome (e.g., `Chr1/`, `Chr2/`) containing:
   - **`WalkSeparated.csv`:** The final cleaned and clustered data with an appended "Walk-IDs" column.
-<br>
-<br>
+
+
+--- 
+
+
 
 # seqOSTORM.mlx
 
@@ -42,7 +45,7 @@ A MATLAB pipeline for analyzing 3D chromosome tracing data, specialized for circ
 * **Required Custom Functions:** <br> Ensure `wrcmap.mlx`, `squareform_nostats.mlx`, and `findParabolicRingTraces.mlx` are in your MATLAB path.
 
 ## Inputs
-* **PathToData.txt:** A comma-delimited text file listing the full paths to all spatial `.csv` files to be analyzed. (Must be first run through SepWalks.mlx to generate `Walk-IDs` column)
+* **PathToData.txt:** A comma-delimited text file listing the full paths to all spatial `.csv` files to be analyzed. (All files must be first run through SepWalks.mlx to generate `Walk-IDs` column)
 * **Metadata (.txt):** A file (e.g., `WalkInfo.txt`) with columns defining (chromosome#, start coordinate, stop coordinate, number of oligos, targetname, time-point number) for each Sequential OligoSTORM target
 * **Genome.fa:** The FASTA file of the imaged genome build.
 
