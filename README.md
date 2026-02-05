@@ -27,8 +27,6 @@ A MATLAB-based pipeline for clustering 3D spatial genomic coordinates into indiv
 * **`SepWalk.mat`:** A full workspace backup of the processed data.
 * **Chromosome Folders:** Subfolders named by chromosome (e.g., `Chr1/`, `Chr2/`) containing:
   - **`WalkSeparated.csv`:** The final cleaned and clustered data with an appended "Walk-IDs" column.
-
-<br>
 <br>
 <br>
 
@@ -61,10 +59,12 @@ A MATLAB pipeline for analyzing 3D chromosome tracing data, specialized for circ
 4. **Drift Filtering:** Adjust the `maxDrift` variable (default 200nm) to filter walks based on re-imaging precision.
 
 ## Outputs
-* **Heatmaps (PDF/PNG):** * `MeanDis.pdf`: Mean Center-to-Center Euclidean distances.
-    * `Pearson C2C.pdf`: Correlation coefficients of distances.
-    * `Edge Histograms`: Visualizations of drift between re-imaged steps.
+* **Heatmaps**
+    * Pair-wise Center-to-Center Euclidean distances.
+* **Repeat Imaging Step data**
+    * For analysis of drift between re-imaging steps
 * **Data Files:**
     * `AnalyzedData.mat`: Full workspace save (excluding UI figures).
-    * `Data.csv`: Concatenated and cleaned spatial data.
-* **ParabolaDiagnostics/:** A subfolder containing fitting plots for circular DNA traces.
+    * `Data.txt`: Concatenated and cleaned spatial data for all walks.
+* **ParabolaDiagnostics/:**
+    * A subfolder containing fitting plots for circular DNA traces.
