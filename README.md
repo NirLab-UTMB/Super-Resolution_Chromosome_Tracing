@@ -27,3 +27,44 @@ A MATLAB-based pipeline for clustering 3D spatial genomic coordinates into indiv
 * **`SepWalk.mat`:** A full workspace backup of the processed data.
 * **Chromosome Folders:** Subfolders named by chromosome (e.g., `Chr1/`, `Chr2/`) containing:
   - **`WalkSeparated.csv`:** The final cleaned and clustered data with an appended "Walk-IDs" column.
+
+<br>
+<br>
+<br>
+
+# seqOSTORM.mlx
+
+A MATLAB pipeline for analyzing 3D chromosome tracing data, specialized for circular DNA (e.g., Salmonella), drift correction, and parabolic fitting of genomic structures.
+
+## Prerequisites
+* **MATLAB R2021b or later**
+* **Required Toolboxes:**
+  * Bioinformatics Toolbox (for `fastaread`)
+  * Statistics and Machine Learning Toolbox (for `pdist` and `squareform`)
+* **Required Custom Functions:** <br> Ensure `wrcmap.m`, `squareform_nostats.m`, and `findParabolicRingTraces.m` are in your MATLAB path.
+
+## Inputs
+* **PathToData.txt:** A comma-delimited text file listing the full paths to all spatial `.csv` files to be analyzed. (Must be first run through SepWalks.mlx to generate `Walk-IDs` column)
+* **Metadata (.txt):** A file (e.g., `WalkInfo.txt`) with columns defining (chromosome#, start coordinate, stop coordinate, number of oligos, targetname, time-point number) for each Sequential OligoSTORM target
+* **Genome.fa:** The FASTA file of the imaged genome build.
+
+## Usage
+1. **Configure Settings:** Open the script and update the "Settings" section:
+    * `folderPath`: Where results will be saved.
+    * `circDNA`: Set to `1` for circular DNA (rings) or `0` for linear.
+    * `SameTargetFlag`: Set to `1` if you have repeated imaging steps for drift correction.
+         - specify which time-points are the repeated imaging targets
+    * `disHmapColorLim`: Set colorbar limits for center-to-center distance heatmaps
+2. **Run Script:** Execute in MATLAB.
+3. **Interactive Prompts:**
+    * **Append Data:** The script will ask if you want to add additional datasets. Use `y` to select a text file with more paths.
+4. **Drift Filtering:** Adjust the `maxDrift` variable (default 200nm) to filter walks based on re-imaging precision.
+
+## Outputs
+* **Heatmaps (PDF/PNG):** * `MeanDis.pdf`: Mean Center-to-Center Euclidean distances.
+    * `Pearson C2C.pdf`: Correlation coefficients of distances.
+    * `Edge Histograms`: Visualizations of drift between re-imaged steps.
+* **Data Files:**
+    * `AnalyzedData.mat`: Full workspace save (excluding UI figures).
+    * `Data.csv`: Concatenated and cleaned spatial data.
+* **ParabolaDiagnostics/:** A subfolder containing fitting plots for circular DNA traces.
